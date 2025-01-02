@@ -1,0 +1,92 @@
+openapi: 3.0.0
+info:
+  title: Simple CRUD API
+  version: 1.0.0
+
+paths:
+  /items:
+    get:
+      summary: Get all items
+      responses:
+        '200':
+          description: List of items
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Item'
+    post:
+      summary: Create an item
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '201':
+          description: Created item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+
+  /items/{id}:
+    get:
+      summary: Get an item by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Item details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    put:
+      summary: Update an item by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Updated item
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    delete:
+      summary: Delete an item by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No content
+
+components:
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../openapi-go-crud"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../sample2"
+		}
+	],
+	"settings": {}
+}
