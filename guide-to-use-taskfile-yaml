@@ -2,6 +2,10 @@
 
 2. Taskfile.yaml
 
+version: '3'
+
+tasks:
+
   generate:sample:
     cmds:
       - mkdir -p testing
